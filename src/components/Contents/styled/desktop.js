@@ -9,10 +9,11 @@ const CardListContainer = styled.div(
 const CustomCard = styled(Card)(
   tw`flex m-8 flex-row rounded-xl overflow-hidden border border-solid`,
   css`
+    height: 222px;
     border-color: ${(props) => props.theme.card_border};
   `,
 );
-const CustomCardImg = styled(CardImg)(tw`w-3/5 clickable`, css``);
+const CustomCardImg = styled(CardImg)(tw`w-3/5 h-full clickable`, css``);
 const CustomCardBody = styled(CardBody)(
   tw`w-2/5`,
   css`
@@ -21,13 +22,14 @@ const CustomCardBody = styled(CardBody)(
 );
 
 const CardContent = styled.div(
-  tw`px-10 pt-10 mb-6 truncate`,
+  tw`px-10 pt-6 truncate`,
   css`
+    height: 150px;
     white-space: break-spaces;
   `,
 );
 const CardTitle = styled.p(
-  tw`pb-4 font-bold`,
+  tw`pb-4 font-bold leading-6`,
   css`
     font-size: 22px;
     color: ${(props) => props.theme.contrast_text};

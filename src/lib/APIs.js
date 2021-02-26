@@ -1,7 +1,7 @@
+/* eslint-disable no-console */
 import axios from 'axios';
 
-const baseApiURL =
-  'https://zzomsa.tk';
+const baseApiURL = 'https://zzomsa.tk';
 
 const getBrand = async () => {
   try {
@@ -24,23 +24,33 @@ const getCategory = async () => {
 const postLoginInfo = async (profileId, profileNickName) => {
   const profile = {
     profile_id: profileId.toString(),
-    nickname: profileNickName
-  }
+    nickname: profileNickName,
+  };
   try {
-    return await axios.post(`${baseApiURL}/login`,profile);
+    return await axios.post(`${baseApiURL}/login`, profile);
   } catch (e) {
     return null;
   }
-}
-
+};
 
 const getPromotions = async (brandId) => {
-
   try {
+    if (brandId === 0) return await axios.get(`${baseApiURL}/api/promotions`);
     return await axios.get(`${baseApiURL}/api/promotions/${brandId}`);
   } catch (e) {
     return null;
   }
-}
+};
 
-export { getBrand, getCategory, postLoginInfo, getPromotions };
+const getSearchBrand = async (name) => {
+  try {
+    const result = await axios.get(
+      `${baseApiURL}/api/brands/search?name=${name}`,
+    );
+
+    return result.data;
+  } catch (e) {
+    return null;
+  }
+};
+export { getBrand, getCategory, postLoginInfo, getPromotions, getSearchBrand };

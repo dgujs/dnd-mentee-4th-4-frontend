@@ -10,7 +10,12 @@ const CustomCard = styled(Card)(
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   `,
 );
-const CustomCardImg = styled(CardImg)(tw`w-full`, css``);
+const CustomCardImg = styled(CardImg)(
+  tw`w-full clickable`,
+  css`
+    height: 222px;
+  `,
+);
 const CustomCardBody = styled(CardBody)(
   tw`w-full flex flex-row justify-between -mt-1`,
   css`

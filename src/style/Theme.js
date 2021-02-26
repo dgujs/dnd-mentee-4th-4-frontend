@@ -24,7 +24,7 @@ const darkTheme = {
   card_bg: '#3D3D3D',
   mo_card_bg: '#000000',
   mo_card_duration: '#C8C8C8',
-  card_border: '#303030',
+  card_border: '#5C5C5C',
   white: '#FFFFFF'
 };
 

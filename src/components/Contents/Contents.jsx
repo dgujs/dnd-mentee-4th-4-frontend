@@ -18,13 +18,13 @@ const Contents = () => {
         <>
           <Redirect to="/ALL" />
           <ContentsHeader selectedBrandInfo={selectedBrandInfo} />
-          <CardList selectedBrandInfo={selectedBrandInfo} />
+          <CardList />
           <MobileCardList />
         </>
       ) : (
         <>
           <ContentsHeader selectedBrandInfo={selectedBrandInfo} />
-          <CardList selectedBrandInfo={selectedBrandInfo} />
+          <CardList />
           <MobileCardList />
         </>
       )}

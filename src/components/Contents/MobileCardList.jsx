@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import MenuContext from '../../context/MenuContext';
+
+import { getSelectedBrandInfo } from '../../lib/Util';
 import {
   CardListContainer,
   CustomCard,
@@ -10,25 +13,39 @@ import {
   CardBrandInfo,
 } from './styled/mobile';
 
-const temp = Array(30).fill(1);
-const tempCardContent = '지갑이 필요할땐 이구삼일';
-const tempCardContent3 = '기간 : 2021.01.14 ~ 2021.01.28';
+const MobileCardList = () => {
+  const { menu, promotions } = useContext(MenuContext);
 
-const MobileCardList = () => (
-  <CardListContainer>
-    {temp.map((_t, index) => (
-      <CustomCard key={index}>
-        <CustomCardImg src="http://placehold.it/475x122" alt="Card image cap" />
-        <CustomCardBody>
-          <CardContent>
-            <CardTitle>{tempCardContent}</CardTitle>
-            <CardDuration>{tempCardContent3}</CardDuration>
-          </CardContent>
-          <CardBrandInfo>스타일쉐어</CardBrandInfo>
-        </CustomCardBody>
-      </CustomCard>
-    ))}
-  </CardListContainer>
-);
+  return (
+    <CardListContainer>
+      {promotions &&
+        promotions.data &&
+        promotions.data.map((promotion) => {
+          const { id, description, image, title, url, BrandId } = promotion;
+          const selectedBrandInfo = getSelectedBrandInfo(menu, BrandId);
+          return (
+            <>
+              {selectedBrandInfo && (
+                <CustomCard key={id}>
+                  <CustomCardImg
+                    src={image}
+                    alt="Card image cap"
+                    onClick={() => window.open(url, '_blank')}
+                  />
+                  <CustomCardBody>
+                    <CardContent>
+                      <CardTitle>{title}</CardTitle>
+                      <CardDuration>{description}</CardDuration>
+                    </CardContent>
+                    <CardBrandInfo>{selectedBrandInfo.name}</CardBrandInfo>
+                  </CustomCardBody>
+                </CustomCard>
+              )}
+            </>
+          );
+        })}
+    </CardListContainer>
+  );
+};
 
 export default MobileCardList;

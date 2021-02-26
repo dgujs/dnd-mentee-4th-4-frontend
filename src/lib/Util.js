@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const makeMenu = (categories, brands) => {
   let menu = {};
   categories.map((category) => {
@@ -32,4 +33,5 @@ const getSelectedBrandInfo = (menu, selectedBrand) => {
   );
   return _selectedBrandInfo[0];
 };
+
 export { makeMenu, getCategoryName, getSelectedBrandInfo };
