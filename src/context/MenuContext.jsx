@@ -39,6 +39,8 @@ const MenuProvider = ({ children }) => {
   useEffect(() => {
     const getPromotions = async () => {
       const _promotions = await API.getPromotions(selectedBrand);
+      // 시연용 .. 너무 내용이 많아서 임시로 프론트에서 먼저 짤라봄
+      _promotions.data = _promotions.data.splice(0,30);
       setPromotions(_promotions);
     };
     getPromotions();

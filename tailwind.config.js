@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {

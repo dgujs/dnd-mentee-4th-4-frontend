@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useContext } from 'react';
 import MenuContext from '../../context/MenuContext';
 import { getSelectedBrandInfo } from '../../lib/Util';
@@ -34,7 +33,6 @@ const descLengthOverCut = (desc) => {
 
 const CardList = () => {
   const { menu, promotions } = useContext(MenuContext);
-
   return (
     <CardListContainer>
       {promotions &&

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 const makeMenu = (categories, brands) => {
   let menu = {};
   categories.map((category) => {
